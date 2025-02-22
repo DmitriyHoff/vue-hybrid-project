@@ -1,0 +1,27 @@
+{
+  "name": "vue-hybrid-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "postinstall": "patch-package"
+  },
+  "dependencies": {
+    "vue": "^2.7.16",
+    "vue3": "npm:vue@^3.5.12"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitejs/plugin-vue2": "^2.3.3",
+    "patch-package": "^8.0.0",
+    "vite": "^6.1.0"
+  },
+  "overrides": {
+    "@vitejs/plugin-vue": {
+      "vue": "vue3"
+    }
+  }
+}

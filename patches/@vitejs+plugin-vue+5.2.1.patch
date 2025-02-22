@@ -1,0 +1,46 @@
+diff --git a/node_modules/@vitejs/plugin-vue/dist/index.cjs b/node_modules/@vitejs/plugin-vue/dist/index.cjs
+index 68cd520..300b097 100644
+--- a/node_modules/@vitejs/plugin-vue/dist/index.cjs
++++ b/node_modules/@vitejs/plugin-vue/dist/index.cjs
+@@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
+ 
+ const fs = require('node:fs');
+ const vite = require('vite');
+-const vue = require('vue');
++const vue = require('vue3');
+ const node_module = require('node:module');
+ const path = require('node:path');
+ const crypto = require('node:crypto');
+diff --git a/node_modules/@vitejs/plugin-vue/dist/index.mjs b/node_modules/@vitejs/plugin-vue/dist/index.mjs
+index 739335e..fc46e3f 100644
+--- a/node_modules/@vitejs/plugin-vue/dist/index.mjs
++++ b/node_modules/@vitejs/plugin-vue/dist/index.mjs
+@@ -1,6 +1,6 @@
+ import fs from 'node:fs';
+ import { normalizePath as normalizePath$1, isCSSRequest, transformWithEsbuild, formatPostcssSourceMap, createFilter } from 'vite';
+-import { shallowRef, computed } from 'vue';
++import { shallowRef, computed } from 'vue3';
+ import { createRequire } from 'node:module';
+ import path from 'node:path';
+ import crypto from 'node:crypto';
+@@ -20,9 +20,9 @@ function resolveCompiler(root) {
+   return compiler;
+ }
+ function tryResolveCompiler(root) {
+-  const vueMeta = tryRequire("vue/package.json", root);
++  const vueMeta = tryRequire("vue3/package.json", root);
+   if (vueMeta && vueMeta.version.split(".")[0] >= 3) {
+-    return tryRequire("vue/compiler-sfc", root);
++    return tryRequire("vue3/compiler-sfc", root);
+   }
+ }
+ const _require = createRequire(import.meta.url);
+@@ -170,7 +170,7 @@ function createRollupError(id, error) {
+   const { message, name, stack } = error;
+   const rollupError = {
+     id,
+-    plugin: "vue",
++    plugin: "vue3",
+     message,
+     name,
+     stack
