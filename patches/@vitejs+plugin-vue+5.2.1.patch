@@ -1,5 +1,5 @@
 diff --git a/node_modules/@vitejs/plugin-vue/dist/index.cjs b/node_modules/@vitejs/plugin-vue/dist/index.cjs
-index 68cd520..300b097 100644
+index 68cd520..4213437 100644
 --- a/node_modules/@vitejs/plugin-vue/dist/index.cjs
 +++ b/node_modules/@vitejs/plugin-vue/dist/index.cjs
 @@ -4,7 +4,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
@@ -11,8 +11,47 @@ index 68cd520..300b097 100644
  const node_module = require('node:module');
  const path = require('node:path');
  const crypto = require('node:crypto');
+@@ -33,9 +33,9 @@ function resolveCompiler(root) {
+   return compiler;
+ }
+ function tryResolveCompiler(root) {
+-  const vueMeta = tryRequire("vue/package.json", root);
++  const vueMeta = tryRequire("vue3/package.json", root);
+   if (vueMeta && vueMeta.version.split(".")[0] >= 3) {
+-    return tryRequire("vue/compiler-sfc", root);
++    return tryRequire("vue3/compiler-sfc", root);
+   }
+ }
+ const _require = node_module.createRequire((typeof document === 'undefined' ? require('u' + 'rl').pathToFileURL(__filename).href : (_documentCurrentScript && _documentCurrentScript.src || new URL('index.cjs', document.baseURI).href)));
+@@ -2546,7 +2546,7 @@ async function transformMain(code, filename, options, pluginContext, ssr, custom
+       path__default.relative(options.root, filename)
+     );
+     output.push(
+-      `import { useSSRContext as __vite_useSSRContext } from 'vue'`,
++      `import { useSSRContext as __vite_useSSRContext } from 'vue3'`,
+       `const _sfc_setup = _sfc_main.setup`,
+       `_sfc_main.setup = (props, ctx) => {`,
+       `  const ssrContext = __vite_useSSRContext()`,
+@@ -2918,7 +2918,7 @@ function vuePlugin(rawOptions = {}) {
+     config(config) {
+       return {
+         resolve: {
+-          dedupe: config.build?.ssr ? [] : ["vue"]
++          dedupe: config.build?.ssr ? [] : ["vue3"]
+         },
+         define: {
+           __VUE_OPTIONS_API__: !!((options.value.features?.optionsAPI ?? true) || config.define?.__VUE_OPTIONS_API__),
+@@ -2927,7 +2927,7 @@ function vuePlugin(rawOptions = {}) {
+         },
+         ssr: {
+           // @ts-ignore -- config.legacy.buildSsrCjsExternalHeuristics will be removed in Vite 5
+-          external: config.legacy?.buildSsrCjsExternalHeuristics ? ["vue", "@vue/server-renderer"] : []
++          external: config.legacy?.buildSsrCjsExternalHeuristics ? ["vue3", "@vue/server-renderer"] : []
+         }
+       };
+     },
 diff --git a/node_modules/@vitejs/plugin-vue/dist/index.mjs b/node_modules/@vitejs/plugin-vue/dist/index.mjs
-index 739335e..fc46e3f 100644
+index 739335e..247777f 100644
 --- a/node_modules/@vitejs/plugin-vue/dist/index.mjs
 +++ b/node_modules/@vitejs/plugin-vue/dist/index.mjs
 @@ -1,6 +1,6 @@
@@ -35,12 +74,21 @@ index 739335e..fc46e3f 100644
    }
  }
  const _require = createRequire(import.meta.url);
-@@ -170,7 +170,7 @@ function createRollupError(id, error) {
-   const { message, name, stack } = error;
-   const rollupError = {
-     id,
--    plugin: "vue",
-+    plugin: "vue3",
-     message,
-     name,
-     stack
+@@ -2905,7 +2905,7 @@ function vuePlugin(rawOptions = {}) {
+     config(config) {
+       return {
+         resolve: {
+-          dedupe: config.build?.ssr ? [] : ["vue"]
++          dedupe: config.build?.ssr ? [] : ["vue3"]
+         },
+         define: {
+           __VUE_OPTIONS_API__: !!((options.value.features?.optionsAPI ?? true) || config.define?.__VUE_OPTIONS_API__),
+@@ -2914,7 +2914,7 @@ function vuePlugin(rawOptions = {}) {
+         },
+         ssr: {
+           // @ts-ignore -- config.legacy.buildSsrCjsExternalHeuristics will be removed in Vite 5
+-          external: config.legacy?.buildSsrCjsExternalHeuristics ? ["vue", "@vue/server-renderer"] : []
++          external: config.legacy?.buildSsrCjsExternalHeuristics ? ["vue3", "@vue/server-renderer"] : []
+         }
+       };
+     },
