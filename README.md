@@ -1,27 +1,15 @@
+[![en](https://img.shields.io/badge/lang-en-green.svg)](https://github.com/DmitriyHoff/vue-hybrid-project/blob/main/README.md)
+[![ru](https://img.shields.io/badge/lang-ru-red.svg)](https://github.com/DmitriyHoff/vue-hybrid-project/blob/main/README.ru.md)
+
 # Vue Hybrid Project
-This repository provides a unique setup where both Vue 2 and Vue 3 components coexist and are rendered from a single entrypoint, leveraging Vite's fast development server and optimized build process.
 
-## Key feature
-The primary feature of this project is the ability to run Vue 2 and Vue 3 side-by-side using a single Vite configuration. This hybrid approach allows developers to gradually migrate from Vue 2 to Vue 3 or maintain legacy components while adopting newer features.
+This repository provides a setup where Vue 2 and Vue 3 components coexist and can be rendered from a single entry point using Vite.
 
-## Why Use It
-Combining Vue 2 and Vue 3 in the same project offers several advantages:
+This hybrid approach allows for a gradual migration from Vue 2 to Vue 3 and supports maintaining legacy components while introducing new features.
 
-- **Gradual Migration**: Transition from Vue 2 to Vue 3 incrementally without a full rewrite. Start by adding Vue 3 components (`.vue3.vue`) alongside existing Vue 2 code (`.vue`), updating at your own pace.
-- **Legacy Support**: Maintain older Vue 2 components critical to your app while adopting Vue 3’s modern features (e.g., Composition API, better TypeScript support) in new development.
-- **Experimentation**: Test Vue 3 features in a real project without abandoning a stable Vue 2 codebase. Compare performance or syntax side-by-side in a single environment.
-- **Team Flexibility**: Allow teams to work with their preferred Vue version, bridging skill gaps during a transition period.
-- **Single Build Tool**: Use Vite’s fast development server and optimized builds for both versions, simplifying tooling compared to separate projects.
-
-This hybrid approach reduces risk, saves time, and leverages Vite’s efficiency, making it ideal for projects evolving from Vue 2 to Vue 3.
+Using a unified build can be simpler compared to separate projects.
 ## Prerequisites
 - Node.js (v18.x or later recommended)
-
-## Installation
-```
-npm install
-npm run dev
-```
 
 ## Project structure
 ```
